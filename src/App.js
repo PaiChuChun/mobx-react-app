@@ -1,24 +1,23 @@
+
 import React from 'react';
-import logo from './logo.svg';
+
+import { Provider } from "mobx-react"
+import store from "./store"
+
+import Home from "./pages/home"
+
 import './App.css';
+
+
+// Provider 提供一个上下文 在Provider中的变量都受到mobx 管理
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+            {/* 其中的变量都收到store管理*/}
+            <Home />
+      </Provider>
     </div>
   );
 }
